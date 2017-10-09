@@ -1,0 +1,18 @@
+$types_map: (
+  p: "padding",
+  m: "margin"
+);
+$sides_map: ( t: "top", r: "right", b: "bottom", l: "left" );
+
+@each $type in $types_map {
+  @each $side in $sides_map{
+    @for $i from 1 through 5 {
+      $size: $i * 5;
+
+      .#{nth($type, 1)}-#{nth($side,1)}-#{$size} {
+        #{nth($type, 2)}-#{nth($side,2)}: #{$size}px;
+      }
+
+    }
+  }
+}
